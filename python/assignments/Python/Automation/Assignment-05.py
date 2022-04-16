@@ -1,4 +1,4 @@
-Selective Copy:
+"""Selective Copy:
 Write a program that walks through a folder tree and searches for files with a certain file extension (such as .pdf or .jpg). Copy these files from whatever location they are in to a new folder.
 
 
@@ -12,4 +12,41 @@ Write a program that walks through a folder tree and searches for exceptionally 
 Filling in the Gaps:
 Write a program that finds all files with a given prefix, such as spam001.txt, spam002.txt, and so on, in a single folder and locates any gaps in the numbering (such as if there is a spam001.txt and spam003.txt but no spam002.txt).
 Have the program rename all the later files to close this gap.
-As an added challenge, write another program that can insert gaps into numbered files so that a new file can be added
+As an added challenge, write another program that can insert gaps into numbered files so that a new file can be added"""
+
+
+#Program
+
+import os, shutil
+
+def selectiveCopy(folder, extensions, destFolder):
+	folder = os.path.abspath(folder)
+	destFolder = os.path.abspath(destFolder)
+	print('Looking in', folder, 'for files with extensions of', ', '.join(extensions))
+	for foldername, subfolders, filenames in os.walk(folder):
+		for filename in filenames:
+			name, extension = os.path.splitext(filename)
+			if extension in extensions:
+				fileAbsPath = foldername + os.path.sep + filename
+				print('Coping', fileAbsPath, 'to', destFolder)
+				shutil.copy(fileAbsPath, destFolder)
+
+extensions = ['.php', '.py']
+folder = 'randomFolder'
+destFolder = 'selectiveFolder'
+selectiveCopy(folder, extensions, destFolder)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
