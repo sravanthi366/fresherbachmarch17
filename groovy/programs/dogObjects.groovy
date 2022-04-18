@@ -1,8 +1,8 @@
-class DogObjects{
+class DogObjects extends Dog{
 
     static main(args) {
         
-        Dog dog1 = new Dog()
+        Dog dog1 = new Dog();
 
         dog1.name = "Sweet"
         dog1.color = "black"
