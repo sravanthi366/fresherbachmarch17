@@ -2,7 +2,7 @@
 // Create a class called course with a string atrribute called name and an int attribute called days create alist of four course instances where at least two have the same number of days sort the list by number of days. Then sort the list by days but when days are equal sort by name 
 
 class Course{
-    String name;
+    Stringgit  name;
     int days;
     def courseDetails(){
 
